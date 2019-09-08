@@ -15,7 +15,7 @@ import static com.manna.component.library_base.base.BaseApplication.getInstance;
  */
 public class BaseModule implements IBaseModule {
     @Override
-    public void onHighLevel(Application application) {
+    public void init(Application application) {
         initWMRouter();
         //初始化SP
         SPUtils.init(getInstance());
@@ -23,11 +23,6 @@ public class BaseModule implements IBaseModule {
         initLogger();
         //初始化LiveDataBus
         initLiveDataBus();
-    }
-
-    @Override
-    public void onLowLevel(Application application) {
-
     }
 
     /**
