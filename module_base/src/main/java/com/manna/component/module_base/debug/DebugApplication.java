@@ -11,8 +11,6 @@ public class DebugApplication extends BaseApplication {
     public void onCreate() {
         super.onCreate();
 
-        ModuleConfig.getInstance().initHighLevel(this);
-
-        ModuleConfig.getInstance().initLowLevel(this);
+        ModuleConfig.getInstance().init(this);
     }
 }

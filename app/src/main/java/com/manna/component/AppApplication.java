@@ -12,7 +12,6 @@ public class AppApplication extends BaseApplication {
     public void onCreate() {
         super.onCreate();
         //初始化组件
-        ModuleConfig.getInstance().initHighLevel(this);
-        ModuleConfig.getInstance().initLowLevel(this);
+        ModuleConfig.getInstance().init(this);
     }
 }
