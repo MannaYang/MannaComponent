@@ -1,0 +1,37 @@
+if (isBuildModule.toBoolean()) {
+    //独立组件运行
+    apply plugin: 'com.android.application'
+    apply plugin: 'WMRouter'
+} else {
+    //集成运行
+    apply plugin: 'com.android.library'
+}
+
+def globalConfig = rootProject.ext
+def version = globalConfig.versions
+
+android {
+    compileSdkVersion version.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion version.minSdkVersion
+        targetSdkVersion version.targetSdkVersion
+        versionCode version.versionCode
+        versionName version.versionName
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            if (isBuildModule.toBoolean()) {
+                //独立运行
+                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+            } else {
+                //合并到主工程
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+                resources {
+                    exclude 'src/main/debug/*'
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,61 @@
+apply plugin: 'com.android.application'
+apply plugin: 'WMRouter'
+
+def globalConfig = rootProject.ext
+def version = globalConfig.versions
+def dependency = globalConfig.dependencies
+
+android {
+    compileSdkVersion version.compileSdkVersion
+
+    defaultConfig {
+        applicationId version.applicationId
+        minSdkVersion version.minSdkVersion
+        targetSdkVersion version.targetSdkVersion
+        versionCode version.versionCode
+        versionName version.versionName
+    }
+
+    sourceSets {
+        main {
+            if (isBuildModule.toBoolean()) {
+                //独立运行
+                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+            } else {
+                //合并到宿主
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+                resources {
+                    //正式版本时，排除debug文件夹下所有调试文件
+                    exclude 'src/debug/*'
+                }
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //在使用了注解的每个模块中配置注解生成器，包括Application和Library工程
+    annotationProcessor dependency.router_compile
+    //宿主项目中判断组件是否需要独立运行
+    if (isBuildModule.toBoolean()) {
+        //组件独立运行时，宿主项目直接依赖基础库，避免编译错误
+        api project(path: ':module_base')
+    } else {
+        //登录组件
+        implementation project(':module_login')
+        //主业务组件
+        implementation project(path:':module_main')
+        //任务组件
+        implementation project(':module_task')
+        //订单组件
+        implementation project(':module_order')
+        //个人中心组件
+        implementation project(':module_mine')
+    }
+}

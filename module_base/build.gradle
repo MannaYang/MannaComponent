@@ -1,0 +1,24 @@
+apply plugin: 'com.android.library'
+
+def version = rootProject.ext.versions
+
+android {
+    compileSdkVersion version.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion version.minSdkVersion
+        targetSdkVersion version.targetSdkVersion
+        versionCode version.versionCode
+        versionName version.versionName
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api project(path: ':library_base')
+}

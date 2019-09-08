@@ -1,0 +1,11 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="ModuleOrderAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/module_order_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/module_order_colorPrimaryDark</item>
+        <item name="colorAccent">@color/module_order_colorAccent</item>
+    </style>
+
+</resources>

@@ -1,0 +1,62 @@
+apply plugin: 'com.android.library'
+
+def globalConfig = rootProject.ext
+def version = globalConfig.versions
+def dependency = globalConfig.dependencies
+
+android {
+    compileSdkVersion version.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion version.minSdkVersion
+        targetSdkVersion version.targetSdkVersion
+        versionCode version.versionCode
+        versionName version.versionName
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+
+    api dependency.constraint_layout
+    api dependency.design
+
+    api (dependency.okhttp3_logging){
+        exclude group: 'com.squareup.okhttp3'
+    }
+    api dependency.okio
+
+    api dependency.retrofit2
+
+    api dependency.fastjson
+
+    api dependency.crashreport
+    api dependency.nativecrashreport
+
+    api dependency.translucent_bar_hang
+
+    api (dependency.lifecycle_extensions){
+        exclude group: 'com.android.support'
+    }
+
+    api (dependency.router){
+        exclude group: 'com.android.support'
+    }
+    annotationProcessor dependency.router_compile
+
+    api dependency.smart_refresh
+
+    api dependency.update_version
+
+    api (dependency.glide){
+        exclude group: "com.android.support"
+    }
+    annotationProcessor dependency.glide_compile
+
+    api dependency.live_event_bus
+}

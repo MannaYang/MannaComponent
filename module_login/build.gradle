@@ -1,0 +1,31 @@
+apply from: "../config_module.gradle"
+
+def globalConfig = rootProject.ext
+def dependency = globalConfig.dependencies
+
+android {
+    defaultConfig {
+        //如果是独立模块，则使用当前组件的包名
+        if (isBuildModule.toBoolean()) {
+            applicationId "com.manna.component.module_login"
+        }
+    }
+
+    //统一资源前缀，规范资源引用
+    resourcePrefix "module_login"
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    //组件依赖基础库
+    api project(path: ':module_base')
+
+    //在使用了注解的每个模块中配置注解生成器，包括Application和Library工程
+    annotationProcessor dependency.router_compile
+}

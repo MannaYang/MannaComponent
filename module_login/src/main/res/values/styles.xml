@@ -1,0 +1,11 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="ModuleLoginAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/module_login_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/module_login_colorPrimaryDark</item>
+        <item name="colorAccent">@color/module_login_colorAccent</item>
+    </style>
+
+</resources>

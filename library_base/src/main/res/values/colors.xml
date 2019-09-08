@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_default_text_color">#8a000000</color>
+    <color name="bg_transparent">@android:color/transparent</color>
+    <color name="bg_white">@android:color/white</color>
+    <color name="bg_black">@android:color/black</color>
+    <color name="bg_black_deep">#333333</color>
+    <color name="bg_black_middle">#666666</color>
+    <color name="bg_black_light">#999999</color>
+    <color name="bg_orange">@android:color/holo_orange_light</color>
+    <color name="bg_gray">@android:color/darker_gray</color>
+    <color name="bg_blue">@android:color/holo_blue_light</color>
+    <color name="bg_red">@android:color/holo_red_light</color>
+    <color name="bg_status_bar">#008577</color>
+</resources>

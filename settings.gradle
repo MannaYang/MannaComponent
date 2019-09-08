@@ -1,0 +1,2 @@
+include ':app', ':library_base', ':module_base', ':module_main', ':module_login', ':module_task', ':module_order', ':module_mine'
+rootProject.name='MannaComponent'
