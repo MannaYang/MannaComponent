@@ -46,13 +46,4 @@ public class BaseViewModel extends AndroidViewModel implements IBaseViewModel {
     public void onPause() {
 
     }
-
-    /**
-     * 跳转参数约束
-     */
-    public static final class ParameterField {
-        static String CLASS = "CLASS";
-        static String CANONICAL_NAME = "CANONICAL_NAME";
-        static String BUNDLE = "BUNDLE";
-    }
 }
