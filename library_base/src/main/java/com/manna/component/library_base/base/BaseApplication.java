@@ -68,9 +68,6 @@ public class BaseApplication extends Application {
      * 获得当前app运行的Application
      */
     public static Application getInstance() {
-        if (sInstance == null) {
-            throw new NullPointerException("请先初始化Application");
-        }
         return sInstance;
     }
 }
