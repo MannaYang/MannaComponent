@@ -1,5 +1,5 @@
 # MannaComponent
-Android项目组件化框架，基于开源的WMRouter路由、LiveEventBus事件总线、Jetpack系列的MVVM组件集成开发
+Android组件化开发框架，基于开源的WMRouter路由、LiveEventBus事件总线、Jetpack系列的MVVM组件集成开发
 
 
 ## 组件化基础框架
