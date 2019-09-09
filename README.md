@@ -49,3 +49,9 @@ Android项目组件化框架，基于开源的WMRouter路由、LiveEventBus事�
 3. MVVMHabit(https://github.com/goldze/MVVMHabit)
 4. 项目中涉及引用的第三方开源库(retrofit、okhttp等)
 
+
+## 我的个人新球
+
+  免费加入星球一起讨论项目、研究新技术,共同成长!
+  
+![image](https://github.com/MannaYang/AudioVideoCodec/blob/master/screenshot/xiaomiquan.png)
